@@ -2,13 +2,15 @@
 var userChoice, computerChoices, computerGuess, wins, losses, ties;
 
 computerChoices = ["r", "p", "s"];
-computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 wins = 0;
 losses = 0;
 ties = 0;
+userChoice = "";
 document.addEventListener("keyup", function () {
+    computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     userChoice = event.key;
     if (userChoice === "r" || "p" || "s") {
+
         if (userChoice === "r" && computerGuess === "p") {
             losses++;
         } else if (userChoice === "p" && computerGuess === "r") {
@@ -21,16 +23,19 @@ document.addEventListener("keyup", function () {
             wins++;
         } else if (userChoice === "s" && computerGuess === "r") {
             losses++;
-        } else {
+        } else if (userChoice === computerGuess) {
             ties++;
         }
     }
+    var html =
+        "<p>You chose: " + userChoice + "</p>" +
+        "<p>The computer chose: " + computerGuess + "</p>" +
+        "<p>wins: " + wins + "</p>" +
+        "<p>losses: " + losses + "</p>" +
+        "<p>ties: " + ties + "</p>";
+
+    document.getElementById("game").innerHTML = html;
 })
 
-var html =
-    "<p>You chose: " + userChoice + "</p>" +
-    "<p>The computer chose: " + computerGuess + "</p>" +
-    "<p>wins: " + wins + "</p>" +
-    "<p>losses: " + losses + "</p>" +
-    "<p>ties: " + ties + "</p>";
-document.getElementById("game").innerHTML = html;
+
+
