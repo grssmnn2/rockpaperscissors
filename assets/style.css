@@ -1,0 +1,15 @@
+.title, #game, #announce{
+    text-align: center;
+    font-family: 'Baloo Chettan', cursive;
+}
+
+#announce{
+    color: red;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
